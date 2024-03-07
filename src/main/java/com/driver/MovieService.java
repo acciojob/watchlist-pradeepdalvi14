@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class MovieService {
 
     @Autowired
-    MovieRepository movieRepository;
+    private MovieRepository movieRepository;
 
     public void addMovie(Movie movie){
         movieRepository.saveMovie(movie);
@@ -32,7 +32,7 @@ public class MovieService {
     }
 
     public List<String> findMoviesFromDirector(String director){
-        return movieRepository.findMoviesFromDirector(director);
+        return movieRepository.getMoviesByDirectorName(director);
     }
 
     public List<String> findAllMovies(){
